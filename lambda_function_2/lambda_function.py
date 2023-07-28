@@ -9,6 +9,7 @@ lmbd = boto3.client("lambda")
 
 @helper.delete
 def delete_handler(event, _):
+    print("Running Function")
     security_group_id = event["ResourceProperties"]["SecurityGroupId"]
     paginator = lmbd.get_paginator('list_functions')
     for page in paginator.paginate():
